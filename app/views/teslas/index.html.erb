@@ -4,20 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
+<div class="container-fluid">
 
-<% @tesla = Tesla.all %>
 
-<% @tesla.each do |tesla| %>
-    <img src="<%= tesla.image_url %>" alt="<%= tesla.model %>">
-    <h1><%= tesla.model %></h1>
-    <% end %>
+    <% @tesla = Tesla.all %>
+        <% @tesla.each do |tesla| %>
+            <div class="tesla-details"
+            style="background-image: url(<%= tesla.image_url %>); background-size: cover; background-position: center; background-repeat: no-repeat; height: 100vh; width: 100%;">
+                <div class="tesla-content">
+                    <h1 class="card-text" ><%= tesla.model %></h1>
+                    <p>Order Online For Touchless Delivery</p>
+                    </div>
+                    <%= link_to "Custom Order", tesla_path(tesla), class: "btn btn-primary" %>   
+
+            </div>
+        <% end %>
+
+</div>
     
-
-
-
 
 </body>
 </html>

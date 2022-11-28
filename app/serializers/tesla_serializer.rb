@@ -1,3 +1,3 @@
 class TeslaSerializer < ActiveModel::Serializer
-  attributes :model, :image_url
+  attributes :id, :model, :image_url
 end
