@@ -17,8 +17,16 @@
     <img src="<%= @tesla.image_url %>" alt="<%= @tesla.model %>">
     <h1><%= @tesla.model %></h1>
     <p><%= @tesla.description %></p>
-    <p><%= @tesla.price %></p>
+    <p>$<%= @tesla.price %></p>
     <p>In Stock: <%= @tesla.instock %> </p>
+
+    <h2>Reviews</h2>
+    <% @users = @tesla.users.uniq %>
+    <% @users.each do |user| %>
+
+        <h5><%= user.name %></h5>
+        <p><%= user.comment %></p>
+    <% end %>
 
  </div>
     
